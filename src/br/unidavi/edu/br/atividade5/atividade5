@@ -80,20 +80,53 @@ Na utilização da classe, você escolhe o tipo que ela será, por exemplo: List
 
     3: Uso de sobrecarga em métodos que podem ser reutilizados de forma diferente, aceitando até mesmo parâmetros diferentes.
 
-    4: Utiliza polimorfismo paramétrico que permite que você escreva código genérico para servir para os subtipos.
 
 ###### Inspeção / Classificação ######
 
 * 1 - Ref: https://github.com/maliaga/Polimorfismo/tree/master/src/com/itwall/polimorfismo
 
+    1: Utiliza variáveis de acesso protegido, primeiro requisito cumprido.
+
+    2: Utiliza sobrescrita de método principalmente no método "entrenamiento()", porém também usa no método "partidoFutbol()", portanto, segundo requisito cumprido.
+
+    3: Não utiliza sobrecarga de métodos.
+
+----------
 
 * 2 - Ref: https://github.com/victoralvess/PenaltyFever/tree/master/src/br/com/livr
 
+    1: Nesse repositório nenhuma classe utiliza método protegido. As classes podem ser melhores analisadas e com certeza algum método pode ser protegido, pois aplica várias vezes implementação e herança.
+
+    2: Utiliza várias vezes o conceito de sobrescrita de métodos, segundo requisito cumprido.
+
+    3: Não aplica nenhuma sobrecarga de métodos.
+
+----------
 
 * 3 - Ref: https://github.com/gabrielqn20/ExemploPolimorfismo/tree/master/Faculdade/src/pacotepadrao
 
+    1: Nesse repositório nenhuma classe utiliza método progetido nem variáveis protegidas. As variáveis private poderiam ser implementadas como protected, para que as classes filhas tenham acesso as informações também.
+
+    2: Utiliza a sobrescrita de método para o método "toString()", segundo requisito cumprido.
+
+    3: Não aplica nenhuma sobrecarga de métodos.
+
+----------
 
 * 4 - Ref: https://github.com/loiane/curso-java-basico/tree/master/netbeans/curso-java-basico/src/com/loiane/cursojava/aula41
 
+    1: Não utiliza métodos progetidos.
+
+    2: Utiliza sobrescrita para o método "imprimirEtiquetaEndereco()", portanto, segundo requisito cumprido.
+
+    3: Não aplica nenhuma sobrecarga de métodos.
+
+----------
 
 *5 - Ref: https://github.com/loiane/curso-java-basico/tree/master/netbeans/curso-java-basico/src/com/loiane/cursojava/aula46/labs
+
+    1: Não utiliza métodos progetidos.
+
+    2: Utiliza sobrescrita para vários métodos dentro das classes do repositório, portanto, segundo requisito cumprido.
+
+    3: Não aplica nenhuma sobrecarga de métodos.
