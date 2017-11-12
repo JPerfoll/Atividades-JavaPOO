@@ -52,6 +52,52 @@ public class Adivinhacao4Test {
     }
     
     @Test
+    public void deveRetornarNumeroInvalidoLetra(){
+
+        Adivinhacao adivinha = new Adivinhacao();
+        adivinha.opcaoMenu("1");// de 0 a 20
+        String placeholder = adivinha.Jogar("a",5);
+        Assert.assertEquals("invalido", placeholder);
+    }
+    
+    @Test
+    public void deveRetornarNumeroInteiroIgualSorteio(){
+
+        Adivinhacao adivinha = new Adivinhacao();
+        adivinha.opcaoMenu("1");// de 0 a 20
+        String placeholder = adivinha.Jogar(6,6);
+        Assert.assertEquals("igual", placeholder);
+    }
+    
+    @Test
+    public void deveRetornarNumeroInteiroSorteioMenor(){
+
+        Adivinhacao adivinha = new Adivinhacao();
+        adivinha.opcaoMenu("1");// de 0 a 20
+        String placeholder = adivinha.Jogar(7,5);
+        Assert.assertEquals("menor", placeholder);
+    }
+    
+    @Test
+    public void deveRetornarNumeroInteiroSorteioMaior(){
+
+        Adivinhacao adivinha = new Adivinhacao();
+        adivinha.opcaoMenu("1");// de 0 a 20
+        String placeholder = adivinha.Jogar(3,5);
+        Assert.assertEquals("maior", placeholder);
+    }
+    
+    @Test
+    public void deveRetornarNumeroInvalidoInteiroNegativo(){
+
+        Adivinhacao adivinha = new Adivinhacao();
+        adivinha.opcaoMenu("1");// de 0 a 20
+        String placeholder = adivinha.Jogar(-10,5);
+        Assert.assertEquals("invalido", placeholder);
+    }
+    
+    
+    @Test
     public void deveRetornarNumeroInvalidoMaior20(){
 
         Adivinhacao adivinha = new Adivinhacao();

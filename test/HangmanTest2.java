@@ -1,13 +1,9 @@
-import br.unidavi.edu.br.atividade2_reescrita.Hangman;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import br.unidavi.edu.br.atividade6_reescrita.Hangman;
 
-public class HangmanTest {
+import org.junit.Assert;
+import org.junit.Test;
+
+public class HangmanTest2 {
     
     	@Test
 	public void deveRetornarPlaceHolderParaInstanceof(){
@@ -64,5 +60,15 @@ public class HangmanTest {
 		hangman.play("l");
 		Assert.assertEquals(false, hangman.won());
 		Assert.assertEquals(5, hangman.getWrongAttempts());
+	}
+        
+        @Test
+	public void deveRetornarGetCanPlay(){
+            Hangman hangman  = new Hangman("for");
+		hangman.play("u");
+		hangman.play("f");
+		hangman.play("o");
+		hangman.play("r");
+            Assert.assertEquals(false, hangman.getCanPlay());
 	}
 }

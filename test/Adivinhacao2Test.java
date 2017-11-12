@@ -52,6 +52,15 @@ public class Adivinhacao2Test {
     }
     
     @Test
+    public void deveRetornarNumeroInvalidoLetra(){
+
+        Adivinhacao adivinha = new Adivinhacao();
+        adivinha.opcaoMenu("1");// de 0 a 20
+        String placeholder = adivinha.Jogar("a",5);
+        Assert.assertEquals("invalido", placeholder);
+    }
+    
+    @Test
     public void deveRetornarNumeroInvalidoMaior20(){
 
         Adivinhacao adivinha = new Adivinhacao();

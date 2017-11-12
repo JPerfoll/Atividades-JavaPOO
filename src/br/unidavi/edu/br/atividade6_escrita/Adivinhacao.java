@@ -140,7 +140,7 @@ public class Adivinhacao extends Jogo  {
     @Override
     public String Jogar(int numeroDigitado, int numSorteado){
         
-        if (numeroDigitado <= numMaximo){            
+        if ((numeroDigitado <= numMaximo) && (numeroDigitado >= 0)){
             
             tentativa++;
             acertou = false;

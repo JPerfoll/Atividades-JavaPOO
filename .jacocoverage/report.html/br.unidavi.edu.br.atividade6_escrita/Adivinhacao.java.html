@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Adivinhacao.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Atividades-JavaPOO&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">br.unidavi.edu.br.atividade6_escrita</a> &gt; <span class="el_source">Adivinhacao.java</span></div><h1>Adivinhacao.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.unidavi.edu.br.atividade6_escrita;
+
+import java.util.Scanner;
+import java.util.Random;
+
+/**
+ *
+ * @author gt2a
+ */
+public class Adivinhacao extends Jogo  {
+    
+    private int numMaximo;
+<span class="fc" id="L18">    private boolean continuar = true;</span>
+    private int numSorteado;
+    
+    public String opcaoMenu(String opcao){
+        String retorno;
+<span class="pc bpc" id="L23" title="3 of 14 branches missed.">        switch (opcao){</span>
+            case &quot;1&quot;:
+<span class="fc" id="L25">                numMaximo = 20;</span>
+<span class="fc" id="L26">                maxTentativa = 5;</span>
+<span class="fc" id="L27">                retorno = &quot;ok&quot;;</span>
+<span class="fc" id="L28">                break;</span>
+            case &quot;2&quot;:
+<span class="fc" id="L30">                numMaximo = 100;</span>
+<span class="fc" id="L31">                maxTentativa = 6;</span>
+<span class="fc" id="L32">                retorno = &quot;ok&quot;;</span>
+<span class="fc" id="L33">                break;</span>
+            case &quot;3&quot;:
+<span class="fc" id="L35">                retorno = &quot;pergunta&quot;;</span>
+<span class="fc" id="L36">                break;</span>
+            default:
+<span class="fc" id="L38">                retorno = &quot;invalido&quot;;</span>
+        }
+<span class="fc" id="L40">        return retorno;</span>
+    }
+    
+    private void perguntarIntervalo(){
+<span class="nc" id="L44">        Scanner scan = new Scanner(System.in);</span>
+        
+<span class="nc" id="L46">        System.out.printf(&quot;Informe o limite desejado:&quot;);</span>
+<span class="nc" id="L47">        numMaximo = scan.nextInt();         </span>
+<span class="nc" id="L48">        System.out.printf(&quot;Informe o número de tentativas:&quot;);</span>
+<span class="nc" id="L49">        maxTentativa = scan.nextInt();</span>
+<span class="nc" id="L50">    }</span>
+    
+    private void Menu(){
+        
+        boolean continuarOpcao;
+        
+<span class="nc" id="L56">        System.out.println(&quot;Olá Jogador&quot;);</span>
+<span class="nc" id="L57">        System.out.println(&quot;Bem vindo ao jogo de adivinhação de números&quot;);</span>
+<span class="nc" id="L58">        System.out.println(&quot;&quot;);</span>
+        
+<span class="nc" id="L60">        Scanner scan = new Scanner(System.in);</span>
+        
+        do {
+<span class="nc" id="L63">            System.out.println(&quot;Escolha um nível de jogo:&quot;);</span>
+<span class="nc" id="L64">            System.out.println(&quot; 1 - Número com limite de 0 a 20 com 5 tentativas&quot;);</span>
+<span class="nc" id="L65">            System.out.println(&quot; 2 - Número com limite de 0 a 100 com 6 tentativas&quot;);</span>
+<span class="nc" id="L66">            System.out.println(&quot; 3 - Escolher o limite de possibilidades e o número de tentativas&quot;);</span>
+<span class="nc" id="L67">            String opcao = scan.nextLine();</span>
+            
+<span class="nc" id="L69">            String retornoOpcaoMenu = opcaoMenu(opcao);</span>
+            
+<span class="nc bnc" id="L71" title="All 10 branches missed.">            switch (retornoOpcaoMenu){</span>
+                
+                case &quot;pergunta&quot;:
+<span class="nc" id="L74">                    perguntarIntervalo();</span>
+<span class="nc" id="L75">                    break;</span>
+                case &quot;invalido&quot; :
+<span class="nc" id="L77">                    System.out.println(&quot;Informe uma opção válida&quot;);</span>
+<span class="nc" id="L78">                    System.out.println(&quot;&quot;);</span>
+            }
+            
+<span class="nc" id="L81">            continuarOpcao = &quot;invalido&quot;.equals(retornoOpcaoMenu);</span>
+            
+<span class="nc bnc" id="L83" title="All 2 branches missed.">        }while (continuarOpcao);</span>
+        
+<span class="nc" id="L85">    }</span>
+    
+<span class="fc" id="L87">    public Adivinhacao (){</span>
+<span class="fc" id="L88">        this.tentativa = 0;</span>
+<span class="fc" id="L89">        this.acertou = false;</span>
+<span class="fc" id="L90">    }</span>
+    
+<span class="fc" id="L92">    public Adivinhacao (int numMaximo, int numTentativa){</span>
+<span class="fc" id="L93">        this.numMaximo = numMaximo;</span>
+<span class="fc" id="L94">        this.maxTentativa = numTentativa;</span>
+<span class="fc" id="L95">        this.tentativa = 0;</span>
+<span class="fc" id="L96">        this.acertou = false;</span>
+<span class="fc" id="L97">    }</span>
+    
+    public boolean ValidaNumeroInformado(String numeroDigitado){
+
+<span class="fc" id="L101">        boolean retorno = false;</span>
+        
+<span class="fc bfc" id="L103" title="All 2 branches covered.">        if (VerificaInteiroPositivo(numeroDigitado)){</span>
+            
+<span class="fc" id="L105">            int numero = Integer.parseInt(numeroDigitado);</span>
+            
+<span class="fc bfc" id="L107" title="All 2 branches covered.">            if (numero &lt;= numMaximo){</span>
+<span class="fc" id="L108">                retorno = true;                </span>
+            }
+        }
+        
+<span class="fc" id="L112">        return retorno;</span>
+    }
+   
+    @Override
+    public String Jogar(String numeroDigitado, int numSorteado){
+        
+<span class="fc bfc" id="L118" title="All 2 branches covered.">        if (ValidaNumeroInformado(numeroDigitado)){</span>
+<span class="fc" id="L119">            int numero = Integer.parseInt(numeroDigitado);</span>
+            
+<span class="fc" id="L121">            tentativa++;</span>
+<span class="fc" id="L122">            acertou = false;</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">            if (numSorteado == numero) {</span>
+<span class="fc" id="L124">                acertou = true;</span>
+<span class="fc" id="L125">                return &quot;igual&quot;;</span>
+            }else{
+<span class="fc bfc" id="L127" title="All 2 branches covered.">                if (numero &gt; numSorteado){</span>
+                    //System.out.println(&quot;O número sorteado é menor.&quot;);
+<span class="fc" id="L129">                    return &quot;menor&quot;;</span>
+                }else{
+                    //System.out.println(&quot;O número sorteado é maior.&quot;);
+<span class="fc" id="L132">                    return &quot;maior&quot;;</span>
+                }
+            }
+        }else{
+<span class="fc" id="L136">            return &quot;invalido&quot;;</span>
+        }
+    }
+    
+    @Override
+    public String Jogar(int numeroDigitado, int numSorteado){
+        
+<span class="pc bpc" id="L143" title="1 of 4 branches missed.">        if ((numeroDigitado &lt;= numMaximo) &amp;&amp; (numeroDigitado &gt;= 0)){</span>
+            
+<span class="fc" id="L145">            tentativa++;</span>
+<span class="fc" id="L146">            acertou = false;</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">            if (numSorteado == numeroDigitado) {</span>
+<span class="fc" id="L148">                acertou = true;</span>
+<span class="fc" id="L149">                return &quot;igual&quot;;</span>
+            }else{
+<span class="fc bfc" id="L151" title="All 2 branches covered.">                if (numeroDigitado &gt; numSorteado){</span>
+<span class="fc" id="L152">                    return &quot;menor&quot;;</span>
+                }else{
+<span class="fc" id="L154">                    return &quot;maior&quot;;</span>
+                }
+            }
+        }else{
+<span class="fc" id="L158">            return &quot;invalido&quot;;</span>
+        }
+    }
+    
+    @Override
+    public void inicia(){
+        
+<span class="nc bnc" id="L165" title="All 4 branches missed.">        if((numMaximo == 0) &amp;&amp; (maxTentativa == 0)){</span>
+<span class="nc" id="L166">            Menu();</span>
+        }
+        
+<span class="nc" id="L169">        Random rand = new Random();</span>
+                
+<span class="nc" id="L171">        numSorteado = rand.nextInt(numMaximo+1);</span>
+        
+<span class="nc" id="L173">        interacaoUsuario();</span>
+<span class="nc" id="L174">    }</span>
+    
+    @Override
+    public void inicia(int numAdivinhar){
+        
+<span class="nc" id="L179">        numSorteado = numAdivinhar;</span>
+<span class="nc" id="L180">        interacaoUsuario();</span>
+<span class="nc" id="L181">    }</span>
+    
+    public void interacaoUsuario(){
+<span class="nc" id="L184">        Scanner scan = new Scanner(System.in);</span>
+                
+        do {
+<span class="nc" id="L187">            System.out.printf(&quot;Escolha um número de 0 a %d (tentativa %d/%d)&quot;, numMaximo,tentativa,maxTentativa);</span>
+<span class="nc" id="L188">            String numeroDigitado = scan.nextLine();</span>
+
+<span class="nc" id="L190">            String jogada = Jogar(numeroDigitado,numSorteado);</span>
+
+<span class="nc bnc" id="L192" title="All 2 branches missed.">            if(!&quot;igual&quot;.equals(jogada)){</span>
+<span class="nc bnc" id="L193" title="All 2 branches missed.">                if (&quot;invalido&quot;.equals(jogada)){</span>
+<span class="nc" id="L194">                    System.out.println(&quot;Informe um número entre 0 e &quot;+numMaximo);</span>
+                }else{
+<span class="nc" id="L196">                    System.out.println(&quot;O número sorteado é &quot;+jogada);</span>
+                }
+            }
+                
+<span class="nc bnc" id="L200" title="All 4 branches missed.">            continuar = tentativa &lt;= maxTentativa &amp;&amp; !acertou;</span>
+
+<span class="nc bnc" id="L202" title="All 2 branches missed.">        } while (continuar);</span>
+<span class="nc" id="L203">        scan.close();</span>
+<span class="nc bnc" id="L204" title="All 2 branches missed.">        System.out.println(&quot;Você &quot;.concat(getAcertou() ? &quot;'Venceu'&quot; : &quot;'Perdeu', o número era &quot;+numSorteado));</span>
+<span class="nc" id="L205">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -24,6 +24,8 @@ abstract class Jogo {
     protected boolean acertou;
 
     abstract String Jogar(String numeroDigitado, int numSorteado);
+    abstract String Jogar(int numeroDigitado, int numSorteado);
+    
     abstract void inicia();
     
     protected boolean VerificaInteiroPositivo(String num) {

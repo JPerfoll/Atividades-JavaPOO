@@ -124,6 +124,28 @@ public class Adivinhacao extends Jogo  {
     }
     
     @Override
+    public String Jogar(int numeroDigitado, int numSorteado){
+        
+        if ((numeroDigitado <= numMaximo) && (numeroDigitado >= 0)){
+            
+            tentativa++;
+            acertou = false;
+            if (numSorteado == numeroDigitado) {
+                acertou = true;
+                return "igual";
+            }else{
+                if (numeroDigitado > numSorteado){
+                    return "menor";
+                }else{
+                    return "maior";
+                }
+            }
+        }else{
+            return "invalido";
+        }
+    }
+    
+    @Override
     public void inicia(){
                 
         boolean continuar = true;
